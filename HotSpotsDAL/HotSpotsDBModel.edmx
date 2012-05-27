@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HotSpotsDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="HotSpotsDBModelStoreContainer">
+          <EntitySet Name="HotSpot" EntityType="HotSpotsDBModel.Store.HotSpot" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="HotSpot">
+          <Key>
+            <PropertyRef Name="bssid" />
+          </Key>
+          <Property Name="bssid" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="longitude1" Type="float" />
+          <Property Name="longitude2" Type="float" />
+          <Property Name="longitude3" Type="float" />
+          <Property Name="latitude1" Type="float" />
+          <Property Name="latitude2" Type="float" />
+          <Property Name="latitude3" Type="float" />
+          <Property Name="longitude" Type="float" />
+          <Property Name="latitude" Type="float" />
+          <Property Name="strength1" Type="int" />
+          <Property Name="strenght2" Type="int" />
+          <Property Name="strength3" Type="int" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="information" Type="varchar(max)" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HotSpotsDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="HotSpotsDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="HotSpot" EntityType="HotSpotsDBModel.HotSpot" />
+        </EntityContainer>
+        <EntityType Name="HotSpot">
+          <Key>
+            <PropertyRef Name="bssid" />
+          </Key>
+          <Property Name="bssid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="longitude1" Type="Double" />
+          <Property Name="longitude2" Type="Double" />
+          <Property Name="longitude3" Type="Double" />
+          <Property Name="latitude1" Type="Double" />
+          <Property Name="latitude2" Type="Double" />
+          <Property Name="latitude3" Type="Double" />
+          <Property Name="longitude" Type="Double" />
+          <Property Name="latitude" Type="Double" />
+          <Property Name="strength1" Type="Int32" />
+          <Property Name="strenght2" Type="Int32" />
+          <Property Name="strength3" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="password" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="information" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HotSpotsDBModelStoreContainer" CdmEntityContainer="HotSpotsDBEntities">
+          <EntitySetMapping Name="HotSpot"><EntityTypeMapping TypeName="HotSpotsDBModel.HotSpot"><MappingFragment StoreEntitySet="HotSpot">
+            <ScalarProperty Name="bssid" ColumnName="bssid" />
+            <ScalarProperty Name="longitude1" ColumnName="longitude1" />
+            <ScalarProperty Name="longitude2" ColumnName="longitude2" />
+            <ScalarProperty Name="longitude3" ColumnName="longitude3" />
+            <ScalarProperty Name="latitude1" ColumnName="latitude1" />
+            <ScalarProperty Name="latitude2" ColumnName="latitude2" />
+            <ScalarProperty Name="latitude3" ColumnName="latitude3" />
+            <ScalarProperty Name="longitude" ColumnName="longitude" />
+            <ScalarProperty Name="latitude" ColumnName="latitude" />
+            <ScalarProperty Name="strength1" ColumnName="strength1" />
+            <ScalarProperty Name="strenght2" ColumnName="strenght2" />
+            <ScalarProperty Name="strength3" ColumnName="strength3" />
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="password" ColumnName="password" />
+            <ScalarProperty Name="information" ColumnName="information" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="HotSpotsDBModel">
+        <EntityTypeShape EntityType="HotSpotsDBModel.HotSpot" Width="1.5" PointX="0.75" PointY="0.75" Height="3.9033007812499996" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
