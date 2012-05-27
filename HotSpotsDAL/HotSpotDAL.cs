@@ -39,7 +39,10 @@ namespace HotSpotsConnectedLayer
             using (var context = new HotSpotsDBEntities())
             {
                 var ListOfHotSpots = from item in context.HotSpot select item;
-                list = (List<HotSpot>)ListOfHotSpots;
+                foreach(HotSpot hotsp in ListOfHotSpots)
+                {
+                    list.Add(hotsp);
+                }
             }
             return list;
         }
