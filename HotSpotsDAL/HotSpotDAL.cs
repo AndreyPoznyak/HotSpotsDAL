@@ -9,13 +9,20 @@ namespace HotSpotsConnectedLayer
 {
     public static class HotSpotDAL
     {
-        public static void AddHotSpot(HotSpot obj)
+        public static bool AddHotSpot(HotSpot obj)
         {
+            bool success = false;
             using (var context = new HotSpotsDBEntities())
             {
-                context.AddToHotSpot(obj);
-                context.SaveChanges();
+                EntityKey key = new EntityKey("HotSpotsDBEntities.HotSpot", "bssid", obj.bssid);
+                if ((HotSpot)context.GetObjectByKey(key) == null)
+                {
+                    context.AddToHotSpot(obj);
+                    context.SaveChanges();
+                    success = true;
+                }
             }
+            return success;
         }
 
         public static void DeleteHotSpot(String BssidToDelete)
@@ -23,7 +30,7 @@ namespace HotSpotsConnectedLayer
             HotSpot obj = new HotSpot();
             using (var context = new HotSpotsDBEntities())
             {
-                EntityKey key = new EntityKey("HotSpotsDBEntities.Tour", "bssid", BssidToDelete);
+                EntityKey key = new EntityKey("HotSpotsDBEntities.HotSpot", "bssid", BssidToDelete);
                 obj = (HotSpot)context.GetObjectByKey(key);
                 if (obj != null)
                 {
